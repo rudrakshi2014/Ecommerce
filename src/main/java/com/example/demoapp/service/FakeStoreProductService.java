@@ -1,8 +1,6 @@
 package com.example.demoapp.service;
 
-import com.example.demoapp.dto.FakeStoreCategoryDto;
 import com.example.demoapp.dto.FakeStoreProductDto;
-import com.example.demoapp.model.Category;
 import com.example.demoapp.model.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +44,6 @@ public class FakeStoreProductService implements ProductService {
     @Override
     public Product createProduct(Product product) {
         FakeStoreProductDto fspd = new FakeStoreProductDto();
-        fspd.setId(product.getId());
         fspd.setTitle(product.getTitle());
         fspd.setDescription(product.getDescription());
         fspd.setPrice(product.getPrice());
@@ -63,7 +60,7 @@ public class FakeStoreProductService implements ProductService {
 
     //    Update a product
     @Override
-    public Product updateProduct(Product product) {
+    public Product updateProduct(Product product, Long productId) {
         FakeStoreProductDto fspd = new FakeStoreProductDto();
         fspd.setTitle(product.getTitle());
         fspd.setDescription(product.getDescription());

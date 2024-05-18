@@ -16,7 +16,7 @@ public interface ProductService {
     Product createProduct(Product product);
 
     //    Update a product
-    Product updateProduct(Product product);
+    Product updateProduct(Product product, Long productId);
 
     //    Delete a product
     ResponseEntity deleteProduct(Long productId);

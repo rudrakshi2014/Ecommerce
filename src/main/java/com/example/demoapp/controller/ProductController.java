@@ -1,7 +1,7 @@
 package com.example.demoapp.controller;
 
-import com.example.demoapp.model.Category;
 import com.example.demoapp.model.Product;
+import com.example.demoapp.service.FakeStoreProductService;
 import com.example.demoapp.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +31,14 @@ public class ProductController {
     //    Add new product
     @PostMapping("/products")
     public Product createProduct(@RequestBody Product product) {
+        System.out.println(product);
         return productService.createProduct(product);
     }
 
     //    Update a product
-    @PutMapping("/products")
-    public Product updateProduct(@RequestBody Product product) {
-        return productService.updateProduct(product);
+    @PutMapping("/products/{id}")
+    public Product updateProduct(@RequestBody Product product, @PathVariable("id") Long productId) {
+        return productService.updateProduct(product, productId);
     }
 
     //    Delete a product
